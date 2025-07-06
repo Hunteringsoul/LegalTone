@@ -1,8 +1,8 @@
 Flask==3.0.0
 requests==2.31.0
-pandas==2.1.0
-numpy==1.25.0
-python-dotenv==0.21.0
-wheel>=0.38.0
-setuptools>=65.0.0
-Cython>=0.29.0
+pandas==2.2.0
+numpy==1.26.0
+python-dotenv==1.0.0
+wheel>=0.42.0
+setuptools>=68.0.0
+Cython>=3.0.0
