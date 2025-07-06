@@ -83,6 +83,9 @@ def analyze():
     except Exception as e:
         print("❌ Error:", str(e))
         return jsonify({'error': str(e)}), 500
-
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    # Get port from environment variable or default to 5000
+    port = int(os.environ.get('PORT', 5000))
+    
+    # Bind to 0.0.0.0 so it's accessible externally
+    app.run(host='0.0.0.0', port=port, debug=False)
