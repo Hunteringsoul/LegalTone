@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-ink: #070b12;
+    --color-ink-elevated: #0d121c;
+    --color-ink-muted: #141b28;
+    --color-parchment: #f4efe6;
+    --color-parchment-muted: #b8b0a3;
+    --color-gold: #c9a84c;
+    --color-gold-dim: #8a7340;
+    --color-gold-glow: #e8d5a3;
+    --color-border: rgba(201, 168, 76, 0.14);
+    --color-border-strong: rgba(201, 168, 76, 0.28);
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-left: env(safe-area-inset-left, 0px);
+    --safe-right: env(safe-area-inset-right, 0px);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  html,
+  body,
+  #root {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    background: var(--color-ink);
+    color: var(--color-parchment);
+    overscroll-behavior: none;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  ::selection {
+    background: rgba(201, 168, 76, 0.35);
+    color: var(--color-parchment);
+  }
+
+  /* Minimum touch target for interactive controls */
+  button,
+  [role="button"],
+  a,
+  input,
+  select,
+  textarea {
+    touch-action: manipulation;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Cormorant Garamond", Georgia, serif;
+  }
+
+  .bg-app {
+    background-color: var(--color-ink);
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(201, 168, 76, 0.08), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 100%, rgba(30, 58, 95, 0.15), transparent);
+  }
+
+  .glass-panel {
+    background: rgba(13, 18, 28, 0.72);
+    border: 1px solid var(--color-border);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .safe-pt {
+    padding-top: max(0.75rem, var(--safe-top));
+  }
+
+  .safe-pb {
+    padding-bottom: max(0.75rem, var(--safe-bottom));
+  }
+
+  .safe-px {
+    padding-left: max(0.75rem, var(--safe-left));
+    padding-right: max(0.75rem, var(--safe-right));
+  }
+
+  .h-screen-safe {
+    height: 100dvh;
+    height: 100svh;
+  }
+
+  .min-h-touch {
+    min-height: 44px;
+  }
+
+  .min-w-touch {
+    min-width: 44px;
+  }
+
+  .scrollbar-refined {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  .scrollbar-refined::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  .scrollbar-refined::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-refined::-webkit-scrollbar-thumb {
+    background: rgba(201, 168, 76, 0.2);
+    border-radius: 999px;
+  }
+
+  .scrollbar-refined::-webkit-scrollbar-thumb:hover {
+    background: rgba(201, 168, 76, 0.35);
+  }
+
+  .scroll-pad-bottom {
+    scroll-padding-bottom: 6rem;
+  }
+
+  /*
+   * PDF.js draws visible text on the canvas; the text layer stays transparent
+   * for selection. Highlights must NOT set a visible text color or text doubles.
+   */
+  .react-pdf__Page__textContent mark.pdf-text-highlight {
+    color: transparent !important;
+    background-color: rgba(201, 168, 76, 0.42);
+    padding: 0;
+    margin: 0;
+    border-radius: 2px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  .react-pdf__Page {
+    max-width: 100%;
+  }
+
+  .react-pdf__Page canvas {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
