@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Tone Analyzer - AI-Powered Document Analysis</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">LegalTone</a>
+            <ul class="nav-links">
+                <li><a href="#analyzer">Analyzer</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Legal Document Tone Analyzer</h1>
+            <p>Harness the power of AI to analyze the tone and sentiment of legal documents with precision and confidence.</p>
+        </section>
+
+        <section id="analyzer" class="analyzer-section">
+            <div class="section-header">
+                <h2>Analyze Your Document</h2>
+                <p>Upload a document or paste text to get instant tone analysis</p>
+            </div>
+
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📄</div>
+                <div class="upload-text">Drop your legal document here or click to browse</div>
+                <button class="upload-button" onclick="document.getElementById('fileInput').click()">
+                    Choose File
+                </button>
+                <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.txt" style="display: none;">
+            </div>
+
+            <div style="text-align: center; margin: 2rem 0; color: #a0a0a0; font-weight: 500; font-size: 1.1rem; letter-spacing: 0.5px; font-family: 'Playfair Display', serif;">
+                OR
+            </div>
+
+            <textarea class="text-input" id="textInput" placeholder="Paste your legal document text here for analysis..."></textarea>
+
+            <button class="analyze-button" onclick="analyzeDocument()">
+                Analyze Document Tone
+            </button>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Analyzing document tone...</p>
+            </div>
+        </section>
+
+        <section class="results-section" id="resultsSection">
+            <div class="section-header">
+                <h2>Analysis Results</h2>
+                <p>Here's what we found about your document's tone</p>
+            </div>
+
+            <div class="tone-result">
+                <div class="tone-badge tone-formal" id="toneBadge">Formal & Professional</div>
+                <div class="confidence-score">Confidence Score: <strong id="confidenceScore">92%</strong></div>
+            </div>
+
+            <div class="analysis-details">
+                <div class="detail-card">
+                    <h3>🎯 Primary Tone</h3>
+                    <p id="primaryTone"></p>
+                </div>
+                <div class="detail-card">
+                    <h3>📊 Tone Distribution</h3>
+                    <p id="toneDistribution"></p>
+                </div>
+                <div class="detail-card">
+                    <h3>🔍 Key Indicators</h3>
+                    <p id="keyIndicators"></p>
+                </div>
+                <div class="detail-card">
+                    <h3>💡 Recommendations</h3>
+                    <p id="recommendations"></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features-section">
+            <div class="section-header">
+                <h2>Why Choose LegalTone?</h2>
+                <p>Advanced AI technology meets legal expertise</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI-Powered Analysis</h3>
+                    <p>Advanced natural language processing specifically trained on legal documents for accurate tone detection.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Instant Results</h3>
+                    <p>Get comprehensive tone analysis in seconds, not hours. Perfect for busy legal professionals.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure & Confidential</h3>
+                    <p>Your documents are processed securely with enterprise-grade encryption and privacy protection.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Detailed Insights</h3>
+                    <p>Comprehensive analysis including confidence scores, tone distribution, and actionable recommendations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Legal Expertise</h3>
+                    <p>Built by legal professionals for legal professionals, understanding the nuances of legal communication.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Multiple Formats</h3>
+                    <p>Support for various document formats including PDF, Word, and plain text for maximum flexibility.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 LegalTone. All rights reserved. | Professional Legal Document Analysis</p>
+        </div>
+    </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
