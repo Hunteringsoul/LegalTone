@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 Flask==3.0.3
 requests==2.32.3
 pandas==2.3.0
@@ -156,4 +156,4 @@ wheel==0.47.0
 xxhash==3.7.0
 yarl==1.24.2
 zstandard==0.25.0
->>>>>>> master
+
