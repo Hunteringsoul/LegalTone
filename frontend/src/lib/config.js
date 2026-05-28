@@ -25,7 +25,8 @@ function normalizeApiBase(rawBase) {
   }
 }
 
-const API_BASE = normalizeApiBase(import.meta.env.VITE_API_BASE_URL);
+// Hard-lock production backend target to avoid bad env/cached localhost values.
+const API_BASE = normalizeApiBase(DEFAULT_API_BASE);
 
 function resolveBackendUrl(pathOrUrl) {
   if (!pathOrUrl) return null;
