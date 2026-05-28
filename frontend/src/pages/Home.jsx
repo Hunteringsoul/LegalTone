@@ -11,6 +11,7 @@ import ChatWindow from "../components/ChatWindow";
 import PDFViewer from "../components/PDFViewer";
 
 import { consumeAgentStream, EMPTY_RESPONSE } from "../lib/streamChat";
+import { API_BASE } from "../lib/config";
 
 import { AGENT_LIST, INITIAL_AGENT_STATUS } from "../lib/agents";
 
@@ -25,11 +26,6 @@ import {
   hasAnalysis,
 
 } from "../lib/sessionStorage";
-
-
-
-const API_BASE = "https://legaltone-backenddd.onrender.com";
-
 
 
 const ANALYSE_QUERY =

@@ -1,7 +1,8 @@
 import axios from "axios";
+import { API_BASE } from "./config";
 
 const api = axios.create({
-  baseURL: "https://legaltone-backenddd.onrender.com",
+  baseURL: API_BASE,
 });
 
 export default api;
