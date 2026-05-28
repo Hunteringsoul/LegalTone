@@ -11,7 +11,7 @@ import ChatWindow from "../components/ChatWindow";
 import PDFViewer from "../components/PDFViewer";
 
 import { consumeAgentStream, EMPTY_RESPONSE } from "../lib/streamChat";
-import { API_BASE } from "../lib/config";
+import { API_BASE, resolveBackendUrl } from "../lib/config";
 
 import { AGENT_LIST, INITIAL_AGENT_STATUS } from "../lib/agents";
 
@@ -154,13 +154,13 @@ function Home() {
 
       if (saved.document?.name) {
 
-        const url = saved.document.url;
+        const url = resolveBackendUrl(saved.document.url);
 
         const fileOk = url ? await verifyFileExists(url) : false;
 
         if (fileOk || !url) {
 
-          setDocumentMeta(saved.document);
+          setDocumentMeta({ ...saved.document, url });
 
           setAllAgentStatus(setAgentStatuses, "ready");
 

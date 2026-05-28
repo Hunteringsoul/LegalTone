@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { FileUp, FileText, CheckCircle2, Sparkles } from "lucide-react";
 import api from "../lib/api";
-import { API_BASE } from "../lib/config";
+import { resolveBackendUrl } from "../lib/config";
 
 function UploadBox({ onUploaded, onAnalyse, restoredDocument, analysing }) {
   const inputRef = useRef(null);
@@ -34,7 +34,7 @@ function UploadBox({ onUploaded, onAnalyse, restoredDocument, analysing }) {
       setUploaded(true);
 
       const { file_name, file_url, is_pdf, stored_name } = res.data;
-      const fullUrl = file_url ? `${API_BASE}${file_url}` : null;
+      const fullUrl = resolveBackendUrl(file_url);
 
       onUploaded?.({
         name: file_name,
