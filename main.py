@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 from flask import Flask, request, jsonify, render_template, send_from_directory
 import requests
 import os
@@ -119,4 +119,4 @@ app.add_middleware(
 @app.get("/")
 def home():
     return {"message": "LegalTone AI Backend Running"}
->>>>>>> master
+
