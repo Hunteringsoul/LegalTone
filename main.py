@@ -90,7 +90,6 @@ if __name__ == '__main__':
     
     # Bind to 0.0.0.0 so it's accessible externally
     app.run(host='0.0.0.0', port=port, debug=False)
-=======
 from fastapi import FastAPI
 from api.upload import router as upload_router
 from api.analyze import router as analyze_router
