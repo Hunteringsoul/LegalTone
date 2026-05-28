@@ -2,8 +2,13 @@
 from flask import Flask, request, jsonify, render_template, send_from_directory
 import requests
 import os
+from fastapi import FastAPI
 
-app = Flask(__name__, template_folder='templates', static_folder='static')
+app = FastAPI()
+
+@app.get("/")
+def root():
+    return {"message": "LegalTone Backend Running"}
 
 # === IBM Watsonx.ai Credentials ===
 API_KEY = "lV9CIRi3uHYobaQhpoVxc29CQm3N_XwsBXYkkWC5c3Fl"
