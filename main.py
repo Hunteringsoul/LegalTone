@@ -112,9 +112,25 @@ app.include_router(agents_router)
 app.include_router(upload_router)
 app.include_router(analyze_router)
 app.include_router(chat_router)
+
+# Comma-separated override via env, e.g.:
+# CORS_ORIGINS=https://legal-tone-xxx.vercel.app,https://your-custom-domain.com
+cors_origins = [
+    origin.strip()
+    for origin in os.environ.get("CORS_ORIGINS", "").split(",")
+    if origin.strip()
+]
+if not cors_origins:
+    cors_origins = [
+        "https://legal-tone-7x8bhi0id-ketans-projects-5e8dff7c.vercel.app",
+        "https://legaltone-backenddd.onrender.com",
+        "http://localhost:5173",
+    ]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=cors_origins,
+    allow_origin_regex=r"^https://.*\.vercel\.app$",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
