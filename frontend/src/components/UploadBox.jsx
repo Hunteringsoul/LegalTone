@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { FileUp, FileText, CheckCircle2, Sparkles } from "lucide-react";
 import api from "../lib/api";
 
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE = "https://legaltone-backenddd.onrender.com";
 
 function UploadBox({ onUploaded, onAnalyse, restoredDocument, analysing }) {
   const inputRef = useRef(null);
