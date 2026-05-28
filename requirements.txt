@@ -1,3 +1,5 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+
 fastapi
 uvicorn
 python-dotenv
@@ -17,4 +19,4 @@ httpx
 tqdm
 scikit-learn
 scipy
-torch==2.2.2+cpu --extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.2.2
