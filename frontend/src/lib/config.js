@@ -1,6 +1,5 @@
-const DEFAULT_API_BASE = "https://legaltone-backenddd.onrender.com";
-const API_BASE = DEFAULT_API_BASE;
-const API_ORIGIN = new URL(API_BASE).origin;
+const API_BASE = "https://legaltone-backenddd.onrender.com";
+const API_ORIGIN = "https://legaltone-backenddd.onrender.com";
 
 function resolveBackendUrl(pathOrUrl) {
   if (!pathOrUrl) return null;
@@ -9,13 +8,8 @@ function resolveBackendUrl(pathOrUrl) {
 
   try {
     const asUrl = new URL(value);
-    if (asUrl.origin !== API_ORIGIN) {
-      return new URL(
-        asUrl.pathname + asUrl.search + asUrl.hash,
-        API_BASE
-      ).toString();
-    }
-    return asUrl.toString();
+    if (asUrl.origin === API_ORIGIN) return asUrl.toString();
+    return new URL(asUrl.pathname + asUrl.search + asUrl.hash, API_BASE).toString();
   } catch {
     const slashPath = value.startsWith("/") ? value : `/${value}`;
     return new URL(slashPath, API_BASE).toString();
